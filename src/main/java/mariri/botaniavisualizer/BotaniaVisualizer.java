@@ -28,9 +28,25 @@ public class BotaniaVisualizer {
     	MinecraftForge.EVENT_BUS.register(new RenderEventExt());
     }
     
+    private Item itemManaReader; 
+    
     @EventHandler
     public void init(FMLInitializationEvent event) {
     	MinecraftForge.EVENT_BUS.register(new TooltipHandler());
-
+    	
+    	itemManaReader = new ItemManaReader();
+        itemManaReader.setCreativeTab(CreativeTabs.tabTools);
+        itemManaReader.setUnlocalizedName("manaReader");
+        itemManaReader.setTextureName("mariri:manaReader");
+        itemManaReader.setMaxStackSize(1);
+        GameRegistry.registerItem(itemManaReader, "manaReader");
+        
+        CraftingManager.getInstance().getRecipeList().add(new ShapedOreRecipe(
+        		new ItemStack(itemManaReader, 1),
+        		"SDS", "SWS", " W ",
+        		'S', LibOreDict.MANA_STEEL,
+        		'D', LibOreDict.MANA_DIAMOND,
+        		'W', LibOreDict.LIVINGWOOD_TWIG));
+        
     }
 }

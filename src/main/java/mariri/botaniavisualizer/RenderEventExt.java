@@ -57,7 +57,7 @@ public class RenderEventExt {
 					}
 					if (te instanceof TileSpreader) {
 						maxMana = ((TileSpreader)te).getMaxMana();
-						offset = 0.8;
+						offset = 0.2;
 					}
 					if (te instanceof TileTerraPlate) {
 						maxMana = ((TileTerraPlate)te).MAX_MANA;
@@ -80,8 +80,10 @@ public class RenderEventExt {
 					
 					//System.out.println("current:"+currentMana+" / "+"max:"+maxMana); //it works for vanilla. this is good
 					String currentMax = String.format("%,d / %,d", currentMana, maxMana);
-					drawTextInAir(target.blockX, target.blockY + offset, target.blockZ, event.partialTicks, currentMax);
-						
+					GL11.glDisable(2929);
+		            drawTextInAir(target.blockX, target.blockY + offset, target.blockZ, event.partialTicks, currentMax);
+		            GL11.glEnable(2929);
+					
 				}
 			}
 	    //}
