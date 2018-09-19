@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import vazkii.botania.api.mana.IManaBlock;
 import vazkii.botania.common.block.tile.mana.TilePool;
@@ -25,7 +26,7 @@ public class ItemManaReader extends Item{
 				IManaBlock manablock = (IManaBlock)tile;
 				StringBuilder msg = new StringBuilder();
 				String ln = System.getProperty("line.separator");
-				playermp.addChatMessage(new ChatComponentText("Scanning to " + block.getUnlocalizedName()));
+				playermp.addChatMessage(new ChatComponentText("Scanning to " + StatCollector.translateToLocal(block.getUnlocalizedName()+".name") ));
 				int cur = manablock.getCurrentMana();
 				playermp.addChatMessage(new ChatComponentText(String.format(" - Current Mana is %,d", cur)));
 				int max = 0;

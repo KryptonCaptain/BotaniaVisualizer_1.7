@@ -1,0 +1,13 @@
+[
+{
+  "modid": "BotaniaVisualizer",
+  "version": "${version}",
+  "mcversion": "${mc_version}",
+  "name": "Botania Visualizer",
+  "url": "",
+  "description": "A splash of numbers for Botania",
+  "authors": [ "mariri2u", "KryptonCaptain" ],
+  "credits": "",
+  "logoFile": ""
+}
+]
